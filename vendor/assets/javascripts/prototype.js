@@ -3793,10 +3793,11 @@ Element.addMethods({
     var layout = element.getLayout();
 
     element.store('prototype_absolutize_original_styles', {
-      left:   element.getStyle('left'),
-      top:    element.getStyle('top'),
-      width:  element.getStyle('width'),
-      height: element.getStyle('height')
+      position: element.getStyle('position'),
+      left:     element.getStyle('left'),
+      top:      element.getStyle('top'),
+      width:    element.getStyle('width'),
+      height:   element.getStyle('height')
     });
 
     element.setStyle({
