@@ -161,6 +161,17 @@
     }
   });
 
+  document.on("click", "a[data-popup]", function(event, element) {
+    if (event.stopped) return;
+    if ((data = element.readAttribute('data-popup')) != '') {
+      options = data.split(';');
+      window.open($(element).href, options[0], options[1]);
+    } else {
+      window.open($(element).href);
+    }
+    event.stop();
+  });
+
   document.on("click", "form input[type=submit], form button[type=submit], form button:not([type])", function(event, button) {
     // register the pressed submit button
     event.findElement('form').store('rails:submit-button', button.name || false);
