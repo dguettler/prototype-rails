@@ -63,6 +63,7 @@ Autocompleter.Base = Class.create({
     this.options.minChars     = this.options.minChars || 1;
     this.options.onShow       = this.options.onShow ||
       function(element, update){
+        Element.show(update);
         if(!update.style.position || update.style.position=='absolute') {
           update.style.position = 'absolute';
           Position.clone(element, update, {
@@ -70,7 +71,6 @@ Autocompleter.Base = Class.create({
             offsetTop: element.offsetHeight
           });
         }
-        Effect.Appear(update,{duration:0.15});
       };
     this.options.onHide = this.options.onHide ||
       function(element, update){ new Effect.Fade(update,{duration:0.15}) };
